@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var required_key: String;
 
-onready var inventory = get_node("/root/MainScene/UI/Inventory");
+onready var inventory = get_node("/root/MainScene/CanvasLayer/UI/Inventory");
 
 
 # Called when the node enters the scene tree for the first time.

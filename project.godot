@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Item_Components/InventoryItem.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "Monster",
+"language": "GDScript",
+"path": "res://Monster_Components/Monster.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player_Components/Player.gd"
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Inventory": "",
 "InventoryItem": "",
+"Monster": "",
 "Player": ""
 }
 

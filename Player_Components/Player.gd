@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 var max_hp: int = 100;
-var current_hp: int = 50;
+var current_hp: int = 100;
 var move_speed: int = 200;
 var interact_dist: int = 70;
 
@@ -10,7 +10,7 @@ var velocity: Vector2 = Vector2();
 var face_direction: Vector2 = Vector2();
 
 onready var raycast: RayCast2D = $RayCast2D;
-onready var inventory: Inventory = get_node("/root/MainScene/UI/Inventory");
+onready var inventory: Inventory = get_node("/root/MainScene/CanvasLayer/UI/Inventory");
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +19,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if current_hp < 1:
+		queue_free();
+	
 	move();
 	try_interact();
 
@@ -51,8 +54,8 @@ func try_interact():
 				collider.pick_up_item();
 			if collider.has_method("open_key_lock"):
 				collider.open_key_lock();
-		else:
-			use_consumable(inventory);
+		
+		use_consumable(inventory);
 			
 
 # TODO: Consider extracting to a utility class
@@ -68,3 +71,6 @@ func use_consumable(inventory: Inventory):
 	if item_used:
 		inventory.remove_item(inventory.current_index);
 		inventory.reset_state();
+
+
+func get_class(): return "Player";

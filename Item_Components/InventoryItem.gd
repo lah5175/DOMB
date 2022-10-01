@@ -10,7 +10,7 @@ var texture: ImageTexture = ImageTexture.new();
 
 var is_player_in_area: bool = false;
 
-onready var inventory: Inventory = get_node("/root/MainScene/UI/Inventory");
+onready var inventory: Inventory = get_node("/root/MainScene/CanvasLayer/UI/Inventory");
 
 
 # Called when the node enters the scene tree for the first time.
