@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI Components/Inventory.gd" type="Script" id=1]
+
+[node name="Inventory" type="ItemList"]
+margin_right = 723.0
+margin_bottom = 61.0
+max_columns = 10
+same_column_width = true
+fixed_icon_size = Vector2( 50, 50 )
+script = ExtResource( 1 )
+
+[connection signal="item_selected" from="." to="." method="_on_Inventory_item_selected"]

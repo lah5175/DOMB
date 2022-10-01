@@ -1,0 +1,28 @@
+[gd_scene format=2]
+
+[node name="HealthBar" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Container" type="MarginContainer" parent="."]
+margin_bottom = 40.0
+
+[node name="Background" type="NinePatchRect" parent="Container"]
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Container/Background"]
+margin_left = 21.0
+margin_right = 121.0
+margin_bottom = 14.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Container/Background"]
+margin_left = 21.0
+margin_right = 121.0
+margin_bottom = 14.0
+color = Color( 0.729412, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Container/Background"]
+margin_right = 100.0
+margin_bottom = 14.0
+text = "HP"
