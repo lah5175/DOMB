@@ -52,8 +52,10 @@ func try_interact():
 			var collider: Object = raycast.get_collider();
 			if collider.has_method("pick_up_item"):
 				collider.pick_up_item();
-			if collider.has_method("open_key_lock"):
+			elif collider.has_method("open_key_lock"):
 				collider.open_key_lock();
+			elif collider.has_method("do_input_puzzle"):
+				collider.do_input_puzzle();
 		
 		use_consumable(inventory);
 			

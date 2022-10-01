@@ -6,7 +6,7 @@ export var item_tooltip: String;
 export var item_id: String;
 
 var sprite_path: String;
-var texture: ImageTexture = ImageTexture.new();
+var texture: StreamTexture;
 
 var is_player_in_area: bool = false;
 
@@ -22,14 +22,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func render_texture():
-	var image: Image = Image.new();
-	image.load(sprite_path);
-	texture.create_from_image(image);
-
 func pick_up_item():
-	inventory.add_icon_item(texture);
-	var index = inventory.get_item_count() - 1;
-	inventory.set_item_tooltip(index, item_tooltip);
-	inventory.set_item_metadata(index, item_id);
+	inventory.add_to_inventory(texture, item_tooltip, item_id);
 	queue_free();

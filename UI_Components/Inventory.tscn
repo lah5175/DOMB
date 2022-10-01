@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://UI Components/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://UI_Components/Inventory.gd" type="Script" id=1]
 
 [node name="Inventory" type="ItemList"]
 margin_right = 723.0
