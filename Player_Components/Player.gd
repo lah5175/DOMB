@@ -8,20 +8,25 @@ var current_hp: int = 100;
 var move_speed: int = 100;
 var interact_dist: int = 70;
 
+var can_act: bool = true;
+
 var velocity: Vector2 = Vector2();
 var face_direction: Vector2 = Vector2();
 
 onready var raycast: RayCast2D = $RayCast2D;
 onready var inventory: Inventory = get_node("/root/MainScene/CanvasLayer/UI/Inventory");
+onready var dialogue_manager: DialogueManager = get_node("/root/MainScene/CanvasLayer/UI/DialogueManager");
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	face_direction.y = 1;
+	dialogue_manager.connect("dialogue_started", self, "_on_DialogueManager_dialogue_started");
+	dialogue_manager.connect("dialogue_finished", self, "_on_DialogueManager_dialogue_finished");
 
 
 func _physics_process(delta):
-	if current_player:
+	if current_player and can_act:
 		if current_hp < 1:
 			queue_free();
 		
@@ -53,7 +58,9 @@ func try_interact():
 	if Input.is_action_just_pressed("interact"):
 		if raycast.is_colliding():
 			var collider: Object = raycast.get_collider();
-			if collider.has_method("pick_up_item"):
+			if collider.has_method("read_note"):
+				collider.read_note();
+			elif collider.has_method("pick_up_item"):
 				collider.pick_up_item();
 			elif collider.has_method("open_door"):
 				collider.open_door(self);
@@ -79,3 +86,11 @@ func use_consumable(inventory: Inventory):
 
 
 func get_class(): return "Player";
+
+
+func _on_DialogueManager_dialogue_finished():
+	can_act = true;
+	
+	
+func _on_DialogueManager_dialogue_started():
+	can_act = false;
