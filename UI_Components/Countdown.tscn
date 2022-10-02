@@ -6,6 +6,7 @@
 [node name="Countdown" type="Control"]
 margin_right = 500.0
 margin_bottom = 500.0
+rect_scale = Vector2( 0.3, 0.3 )
 
 [node name="TextureRect" type="ColorRect" parent="."]
 margin_right = 54.0

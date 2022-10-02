@@ -8,17 +8,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
-margin_left = 150.5
-margin_top = 539.0
-margin_right = 873.5
-margin_bottom = 600.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -20.0
+margin_right = 615.0
+margin_bottom = 41.0
 
 [node name="Countdown" parent="." instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -55.0
-margin_top = -205.0
-margin_right = 445.0
-margin_bottom = 295.0
+margin_left = -24.0
+margin_top = -68.0
+margin_right = 476.0
+margin_bottom = 432.0

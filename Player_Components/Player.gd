@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+export var current_player: bool = false;
+
 var max_hp: int = 100;
 var current_hp: int = 100;
 var move_speed: int = 100;
@@ -19,11 +21,12 @@ func _ready():
 
 
 func _physics_process(delta):
-	if current_hp < 1:
-		queue_free();
-	
-	move();
-	try_interact();
+	if current_player:
+		if current_hp < 1:
+			queue_free();
+		
+		move();
+		try_interact();
 
 
 func move():
@@ -52,8 +55,8 @@ func try_interact():
 			var collider: Object = raycast.get_collider();
 			if collider.has_method("pick_up_item"):
 				collider.pick_up_item();
-			elif collider.has_method("open_key_lock"):
-				collider.open_key_lock();
+			elif collider.has_method("open_door"):
+				collider.open_door(self);
 			elif collider.has_method("do_input_puzzle"):
 				collider.do_input_puzzle();
 		

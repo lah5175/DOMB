@@ -1,4 +1,4 @@
-extends Node2D
+extends Camera2D
 
 
 # Declare member variables here. Examples:
@@ -16,10 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_LivingRoomCameraTrigger_body_entered(body):
-	$LivingRoomCamera.current = true;
-
-
-func _on_KitchenCameraTrigger_body_entered(body):
-	$KitchenCamera.current = true;
-
+func _on_CameraTrigger_body_entered(body):
+	current = true;
+	add_child()
