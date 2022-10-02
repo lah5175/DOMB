@@ -1,0 +1,19 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/bathroom.tsx-a19cd608d54f136de9bc81c59d544466.res"
+
+[deps]
+
+source_file="res://Tilemaps/bathroom.tsx"
+dest_files=[ "res://.import/bathroom.tsx-a19cd608d54f136de9bc81c59d544466.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=0
+embed_internal_images=true
+save_tiled_properties=false
+post_import_script=""

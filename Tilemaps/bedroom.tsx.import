@@ -1,0 +1,19 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/bedroom.tsx-9d5e298b7f4a16b7ab4860005db92d83.res"
+
+[deps]
+
+source_file="res://Tilemaps/bedroom.tsx"
+dest_files=[ "res://.import/bedroom.tsx-9d5e298b7f4a16b7ab4860005db92d83.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=0
+embed_internal_images=true
+save_tiled_properties=false
+post_import_script=""

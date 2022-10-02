@@ -3,7 +3,7 @@ class_name Player
 
 var max_hp: int = 100;
 var current_hp: int = 100;
-var move_speed: int = 200;
+var move_speed: int = 100;
 var interact_dist: int = 70;
 
 var velocity: Vector2 = Vector2();
