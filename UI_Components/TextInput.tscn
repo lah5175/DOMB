@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI_Components/TextInputLineEdit.gd" type="Script" id=1]
 [ext_resource path="res://UI_Components/TextInput.gd" type="Script" id=2]
+[ext_resource path="res://addons/textalog/assets/fonts/Silver/godot_fonts/silver_normal.tres" type="DynamicFont" id=3]
 
 [node name="TextInput" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 599.0
+margin_right = 320.0
+margin_bottom = 184.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="."]
@@ -16,17 +17,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 464.0
-margin_top = 248.0
-margin_right = 561.0
-margin_bottom = 262.0
+margin_left = 112.0
+margin_top = 64.0
+margin_right = 209.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 3 )
 text = "Enter the code:"
 align = 1
 
 [node name="TextInputLineEdit" type="LineEdit" parent="."]
-margin_left = 424.0
-margin_top = 272.0
-margin_right = 608.0
-margin_bottom = 296.0
+margin_left = 96.0
+margin_top = 88.0
+margin_right = 224.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 3 )
 caret_blink = true
 script = ExtResource( 1 )

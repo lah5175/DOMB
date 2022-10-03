@@ -35,6 +35,7 @@ func show_dialogue():
 	add_child(dialogue);
 	dialogue.show_text(dialogue_arr[index]);
 	is_showing = true;
+	get_parent().get_node("Inventory").visible = false;
 	index += 1;
 
 
@@ -51,6 +52,7 @@ func advance_dialogue():
 	else:
 		index = 0;
 		is_showing = false;
+		get_parent().get_node("Inventory").visible = true;
 		emit_signal("dialogue_finished");
 		$CompleteTimer.start();
 

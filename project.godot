@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI_Components/Inventory.gd"
 }, {
-"base": "Node2D",
+"base": "Area2D",
 "class": "InventoryItem",
 "language": "GDScript",
 "path": "res://Item_Components/InventoryItem.gd"

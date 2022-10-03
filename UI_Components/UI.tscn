@@ -8,16 +8,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Inventory" parent="." instance=ExtResource( 2 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -108.0
-margin_top = -20.0
-margin_right = 615.0
-margin_bottom = 41.0
-
 [node name="Countdown" parent="." instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -29,3 +19,10 @@ margin_right = 476.0
 margin_bottom = 432.0
 
 [node name="DialogueManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Inventory" parent="." instance=ExtResource( 2 )]
+margin_left = 48.0
+margin_top = 152.0
+margin_right = 348.0
+margin_bottom = 183.0
+rect_scale = Vector2( 0.8, 0.8 )

@@ -9,13 +9,17 @@ var move_speed: int = 100;
 var interact_dist: int = 70;
 
 var can_act: bool = true;
+var popup_active: bool = false;
 
 var velocity: Vector2 = Vector2();
 var face_direction: Vector2 = Vector2();
 
 onready var raycast: RayCast2D = $RayCast2D;
+onready var ui = get_node("/root/MainScene/CanvasLayer/UI");
 onready var inventory: Inventory = get_node("/root/MainScene/CanvasLayer/UI/Inventory");
 onready var dialogue_manager: DialogueManager = get_node("/root/MainScene/CanvasLayer/UI/DialogueManager");
+
+onready var clue_factory = preload("res://UI_Components/CluePopup.tscn");
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,33 +60,53 @@ func move():
 
 func try_interact():
 	if Input.is_action_just_pressed("interact"):
-		if raycast.is_colliding():
-			var collider: Object = raycast.get_collider();
-			if collider.has_method("read_note"):
-				collider.read_note();
-			elif collider.has_method("pick_up_item"):
-				collider.pick_up_item();
-			elif collider.has_method("open_door"):
-				collider.open_door(self);
-			elif collider.has_method("do_input_puzzle"):
-				collider.do_input_puzzle();
-		
-		use_consumable(inventory);
+		if popup_active:
+			dismiss_popups();
+		else:
+			if raycast.is_colliding():
+				var collider: Object = raycast.get_collider();
+				if collider.has_method("read_note"):
+					collider.read_note();
+				elif collider.has_method("inspect_with_key_item"):
+					collider.inspect_with_key_item();
+				elif collider.has_method("pick_up_item"):
+					collider.pick_up_item();
+				elif collider.has_method("open_door"):
+					collider.open_door(self);
+				elif collider.has_method("do_input_puzzle"):
+					collider.do_input_puzzle();
+				return;
+			
+			use_item(inventory);
 			
 
 # TODO: Consider extracting to a utility class
-func use_consumable(inventory: Inventory):
+func use_item(inventory: Inventory):
 	if inventory.current_index < 0:
 		return;
+		
+	if inventory.get_item_tooltip(inventory.current_index) == "Clue":
+		var popup = clue_factory.instance();
+		var texture_str = "res://Item_Components/Sprites/Clues/" + inventory.current_item + ".png";
+		popup.texture = load(texture_str);
+		ui.add_child(popup);
+		popup_active = true;
 	
-	var item_used: bool = false;
+	var item_consumed: bool = false;
 	if inventory.current_item == "apple":
 		current_hp = clamp(current_hp + 20, 0, 100);
-		item_used = true;
+		item_consumed = true;
 	
-	if item_used:
+	if item_consumed:
 		inventory.remove_item(inventory.current_index);
 		inventory.reset_state();
+
+
+func dismiss_popups():
+	for child in ui.get_children():
+		if child.get_class() == "Popup" and child.can_dismiss:
+			child.queue_free();
+			popup_active = false;
 
 
 func get_class(): return "Player";

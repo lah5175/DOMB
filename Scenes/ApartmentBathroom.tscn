@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tilemaps/bathroom.tsx" type="TileSet" id=1]
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ApartmentBathroom.gd" type="Script" id=3]
+[ext_resource path="res://Item_Components/InventoryItem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Item_Components/Sprites/broom.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 36 )
@@ -10,6 +12,7 @@ extents = Vector2( 96, 36 )
 [sub_resource type="RectangleShape2D" id=2]
 
 [node name="ApartmentBathroom" type="Node2D"]
+position = Vector2( 8, -16 )
 script = ExtResource( 3 )
 
 [node name="Layer 1" type="TileMap" parent="."]
@@ -26,6 +29,12 @@ cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
 tile_data = PoolIntArray( 131073, 134, 0, 131074, 121, 0, 131075, 121, 0, 131076, 121, 0, 131077, 121, 0, 131078, 121, 0, 131079, 121, 0, 131080, 121, 0, 131081, 132, 0, 262154, 134, 0, 262155, 121, 0, 262156, 121, 0, 262157, 132, 0, 393225, 134, 0, 393226, 132, 0 )
+
+[node name="Broom" parent="." instance=ExtResource( 4 )]
+position = Vector2( 252, 80 )
+item_tooltip = "Broom"
+item_id = "broom"
+texture = ExtResource( 5 )
 
 [node name="Layer 2" type="TileMap" parent="."]
 position = Vector2( 40, 8 )

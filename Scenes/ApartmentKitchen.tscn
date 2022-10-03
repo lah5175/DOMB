@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilemaps/living_kitchen.tsx" type="TileSet" id=1]
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ApartmentKitchen.gd" type="Script" id=3]
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interactables/Note.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/BookcaseClue.gd" type="Script" id=6]
+[ext_resource path="res://Item_Components/Sprites/note.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 36 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 40 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12, 11.5 )
 
 [node name="ApartmentKitchen" type="Node2D"]
 script = ExtResource( 3 )
@@ -43,7 +48,7 @@ tile_data = PoolIntArray( 16, 165, 0, 18, 216, 0, 65551, 189, 0, 65552, 177, 0, 
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 97, 0, 2, 271, 0, 3, 226, 0, 4, 227, 0, 10, 86, 0, 11, 99, 0, 12, 87, 0, 22, 96, 0, 65536, 73, 0, 65538, 283, 0, 65539, 238, 0, 65540, 239, 0, 65555, 127, 0, 65558, 74, 0, 131072, 73, 0, 131075, 314, 0, 131079, 275, 0, 131082, 170, 0, 131087, 66, 0, 131088, 67, 0, 131089, 68, 0, 131091, 139, 0, 131094, 74, 0, 196608, 73, 0, 196615, 287, 0, 196618, 182, 0, 196630, 74, 0, 262144, 73, 0, 262150, 295, 0, 262166, 74, 0, 327680, 73, 0, 327686, 307, 0, 327696, 196, 0, 327698, 198, 0, 327702, 114, 0, 327703, 86, 0, 393216, 73, 0, 393232, 208, 0, 393234, 210, 0, 393238, 90, 0, 393239, 86, 0, 458752, 73, 0, 458774, 74, 0, 524288, 73, 0, 524298, 90, 0, 524299, 91, 0, 524300, 92, 0, 524302, 80, 0, 524303, 77, 0, 524304, 78, 0, 524310, 74, 0, 589824, 85, 0, 589825, 91, 0, 589826, 91, 0, 589827, 91, 0, 589828, 91, 0, 589829, 91, 0, 589830, 91, 0, 589831, 91, 0, 589832, 91, 0, 589833, 91, 0, 589834, 84, 0, 589836, 85, 0, 589837, 91, 0, 589838, 91, 0, 589839, 91, 0, 589840, 91, 0, 589841, 91, 0, 589842, 91, 0, 589843, 91, 0, 589844, 91, 0, 589845, 91, 0, 589846, 84, 0 )
+tile_data = PoolIntArray( 0, 97, 0, 2, 271, 0, 3, 226, 0, 4, 227, 0, 10, 86, 0, 11, 99, 0, 12, 87, 0, 22, 96, 0, 65536, 73, 0, 65538, 283, 0, 65539, 238, 0, 65540, 239, 0, 65555, 127, 0, 65558, 74, 0, 131072, 73, 0, 131079, 275, 0, 131082, 170, 0, 131087, 66, 0, 131088, 67, 0, 131089, 68, 0, 131091, 139, 0, 131094, 74, 0, 196608, 73, 0, 196615, 287, 0, 196618, 182, 0, 196630, 74, 0, 262144, 73, 0, 262150, 295, 0, 262166, 74, 0, 327680, 73, 0, 327686, 307, 0, 327696, 196, 0, 327698, 198, 0, 327702, 114, 0, 327703, 86, 0, 393216, 73, 0, 393232, 208, 0, 393234, 210, 0, 393238, 90, 0, 393239, 86, 0, 458752, 73, 0, 458774, 74, 0, 524288, 73, 0, 524298, 90, 0, 524299, 91, 0, 524300, 92, 0, 524302, 80, 0, 524303, 77, 0, 524304, 78, 0, 524310, 74, 0, 589824, 85, 0, 589825, 91, 0, 589826, 91, 0, 589827, 91, 0, 589828, 91, 0, 589829, 91, 0, 589830, 91, 0, 589831, 91, 0, 589832, 91, 0, 589833, 91, 0, 589834, 84, 0, 589836, 85, 0, 589837, 91, 0, 589838, 91, 0, 589839, 91, 0, 589840, 91, 0, 589841, 91, 0, 589842, 91, 0, 589843, 91, 0, 589844, 91, 0, 589845, 91, 0, 589846, 84, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 229, 94 )
@@ -91,7 +96,20 @@ door_name = "bathroom_door"
 
 [node name="Note" parent="." instance=ExtResource( 5 )]
 position = Vector2( 288, 71 )
-dialogue = [ "According to all known laws of aviation,", "there is no way a bee should be able to fly.", "Its wings are too small to get its fat little body off the ground.", "The bee, of course, flies anyway", "because bees don't care what humans think is impossible." ]
+dialogue = [ "There is a note on the kitchen table. It reads the following:", "\"Hey there, I know stuff has been rough for you lately,", "but I wanted to let you know that I've got your back no matter how bad things get.", "If you ever need someone to talk to, shoot me an email. ", "You should have my address already, but in case you lost it - it's mary@xxxxx.com.", "Don't give up! Keep up the good fight!", "- Mary xoxo\"" ]
+
+[node name="BookcaseClue" type="Area2D" parent="."]
+position = Vector2( 18, 42 )
+collision_layer = 2
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BookcaseClue"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 3 )
+
+[node name="BookcaseClueSprite" type="Sprite" parent="."]
+position = Vector2( 22, 25 )
+texture = ExtResource( 7 )
 
 [connection signal="body_entered" from="LivingRoomCameraTrigger" to="." method="_on_LivingRoomCameraTrigger_body_entered"]
 [connection signal="body_entered" from="KitchenCameraTrigger" to="." method="_on_KitchenCameraTrigger_body_entered"]
