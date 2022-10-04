@@ -1,0 +1,151 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/textalog/assets/fonts/Silver/godot_fonts/silver_normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interactables/Numpad.gd" type="Script" id=2]
+[ext_resource path="res://Interactables/NumButton.tscn" type="PackedScene" id=3]
+
+[node name="Numpad" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="NumpadBackground" type="ColorRect" parent="."]
+margin_left = 104.0
+margin_top = 8.0
+margin_right = 216.0
+margin_bottom = 178.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[node name="TimeBackground" type="ColorRect" parent="."]
+margin_left = 120.0
+margin_top = 16.0
+margin_right = 200.0
+margin_bottom = 46.0
+color = Color( 0.0823529, 0.235294, 0, 1 )
+
+[node name="Time" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 15.0
+margin_right = 200.0
+margin_bottom = 53.0
+custom_colors/font_color = Color( 0.0823529, 1, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="Num1" parent="." instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 56.0
+margin_right = 137.0
+margin_bottom = 76.0
+number = 1
+
+[node name="Num2" parent="." instance=ExtResource( 3 )]
+margin_left = 148.0
+margin_top = 56.0
+margin_right = 173.0
+margin_bottom = 76.0
+number = 2
+
+[node name="Num3" parent="." instance=ExtResource( 3 )]
+margin_left = 184.0
+margin_top = 56.0
+margin_right = 209.0
+margin_bottom = 76.0
+number = 3
+
+[node name="Num4" parent="." instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 88.0
+margin_right = 137.0
+margin_bottom = 108.0
+number = 4
+
+[node name="Num5" parent="." instance=ExtResource( 3 )]
+margin_left = 148.0
+margin_top = 88.0
+margin_right = 173.0
+margin_bottom = 108.0
+number = 5
+
+[node name="Num6" parent="." instance=ExtResource( 3 )]
+margin_left = 184.0
+margin_top = 88.0
+margin_right = 209.0
+margin_bottom = 108.0
+number = 6
+
+[node name="Num7" parent="." instance=ExtResource( 3 )]
+margin_left = 112.0
+margin_top = 120.0
+margin_right = 137.0
+margin_bottom = 140.0
+number = 7
+
+[node name="Num8" parent="." instance=ExtResource( 3 )]
+margin_left = 148.0
+margin_top = 120.0
+margin_right = 173.0
+margin_bottom = 140.0
+number = 8
+
+[node name="Num9" parent="." instance=ExtResource( 3 )]
+margin_left = 184.0
+margin_top = 120.0
+margin_right = 209.0
+margin_bottom = 140.0
+number = 9
+
+[node name="Num0" parent="." instance=ExtResource( 3 )]
+margin_left = 148.0
+margin_top = 152.0
+margin_right = 173.0
+margin_bottom = 172.0
+
+[node name="Confirm" type="Button" parent="."]
+margin_left = 184.0
+margin_top = 152.0
+margin_right = 209.0
+margin_bottom = 172.0
+
+[node name="ColorRect" type="ColorRect" parent="Confirm"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 23.0
+margin_bottom = 18.0
+mouse_filter = 1
+color = Color( 0.0705882, 0.321569, 0, 0.631373 )
+
+[node name="Clear" type="Button" parent="."]
+margin_left = 112.0
+margin_top = 152.0
+margin_right = 137.0
+margin_bottom = 172.0
+
+[node name="ColorRect" type="ColorRect" parent="Clear"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 23.0
+margin_bottom = 18.0
+mouse_filter = 1
+color = Color( 0.556863, 0, 0, 0.631373 )
+
+[connection signal="number_pressed" from="Num1" to="." method="_on_Num1_number_pressed"]
+[connection signal="number_pressed" from="Num2" to="." method="_on_Num2_number_pressed"]
+[connection signal="number_pressed" from="Num3" to="." method="_on_Num3_number_pressed"]
+[connection signal="number_pressed" from="Num4" to="." method="_on_Num4_number_pressed"]
+[connection signal="number_pressed" from="Num5" to="." method="_on_Num5_number_pressed"]
+[connection signal="number_pressed" from="Num6" to="." method="_on_Num6_number_pressed"]
+[connection signal="number_pressed" from="Num7" to="." method="_on_Num7_number_pressed"]
+[connection signal="number_pressed" from="Num8" to="." method="_on_Num8_number_pressed"]
+[connection signal="number_pressed" from="Num9" to="." method="_on_Num9_number_pressed"]
+[connection signal="number_pressed" from="Num0" to="." method="_on_Num0_number_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_Confirm_pressed"]

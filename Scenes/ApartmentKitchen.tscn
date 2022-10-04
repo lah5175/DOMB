@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tilemaps/living_kitchen.tsx" type="TileSet" id=1]
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Interactables/Note.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/BookcaseClue.gd" type="Script" id=6]
 [ext_resource path="res://Item_Components/Sprites/note.png" type="Texture" id=7]
+[ext_resource path="res://Interactables/NumberPuzzle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Item_Components/Sprites/knife.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 36 )
@@ -42,7 +44,7 @@ tile_data = PoolIntArray( 65536, 288, 0, 65537, 289, 0, 65541, 261, 0, 65542, 26
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 16, 165, 0, 18, 216, 0, 65551, 189, 0, 65552, 177, 0, 65554, 228, 0, 131093, 190, 0, 131094, 176, 0, 196630, 167, 0, 327696, 203, 0, 327697, 197, 0, 327698, 202, 0, 393232, 215, 0, 393233, 209, 0, 393234, 214, 0, 458772, 168, 0, 458773, 169, 0, 524308, 180, 0, 524309, 181, 0 )
+tile_data = PoolIntArray( 16, 165, 0, 18, 216, 0, 65551, 189, 0, 65552, 177, 0, 65554, 228, 0, 131093, 176, 0, 196630, 167, 0, 327696, 203, 0, 327697, 197, 0, 327698, 202, 0, 393232, 215, 0, 393233, 209, 0, 393234, 214, 0, 458772, 168, 0, 458773, 169, 0, 524308, 180, 0, 524309, 181, 0 )
 
 [node name="Layer 3" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -110,6 +112,14 @@ shape = SubResource( 3 )
 [node name="BookcaseClueSprite" type="Sprite" parent="."]
 position = Vector2( 22, 25 )
 texture = ExtResource( 7 )
+
+[node name="Microwave" parent="." instance=ExtResource( 8 )]
+position = Vector2( 346, 39 )
+collision_layer = 2
+texture = ExtResource( 9 )
+contents_tooltip = "Knife"
+contents_id = "knife"
+solution = "1358"
 
 [connection signal="body_entered" from="LivingRoomCameraTrigger" to="." method="_on_LivingRoomCameraTrigger_body_entered"]
 [connection signal="body_entered" from="KitchenCameraTrigger" to="." method="_on_KitchenCameraTrigger_body_entered"]

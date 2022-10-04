@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://NumButton.gd" type="Script" id=1]
+
+[node name="NumButton" type="Button"]
+margin_right = 39.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 2.0
+margin_right = 25.0
+margin_bottom = 21.0
+align = 1
+valign = 1
+
+[connection signal="pressed" from="." to="." method="_on_NumButton_pressed"]
