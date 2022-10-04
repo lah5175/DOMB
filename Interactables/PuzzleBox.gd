@@ -17,6 +17,12 @@ func _ready():
 
 func open():
 	if !is_open:
-		inventory.add_to_inventory(texture, contents_tooltip, contents_id);
-		is_open = true;
-		# Change animation here to open
+		if len(contents_tooltip) and len(contents_id):
+			# That means this is an item box
+			inventory.add_to_inventory(texture, contents_tooltip, contents_id);
+			is_open = true;
+			# Change animation here to open
+		else:
+			# This is a puzzle box
+			is_open = true;
+			print("post-puzzle logic goes here!");

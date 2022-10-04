@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tilemaps/bathroom.tsx" type="TileSet" id=1]
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ApartmentBathroom.gd" type="Script" id=3]
 [ext_resource path="res://Item_Components/InventoryItem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Item_Components/Sprites/broom.png" type="Texture" id=5]
+[ext_resource path="res://Interactables/NumberPuzzle.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 36 )
@@ -75,6 +76,10 @@ position = Vector2( 152, 88 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KitchenTrigger"]
 position = Vector2( 128, 144 )
 shape = SubResource( 2 )
+
+[node name="SinkNumPuzzle" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88, 53 )
+solution = "4893"
 
 [connection signal="area_entered" from="BathroomCameraTrigger" to="." method="_on_BathroomCameraTrigger_area_entered"]
 [connection signal="body_entered" from="KitchenTrigger" to="." method="_on_KitchenTrigger_body_entered"]
