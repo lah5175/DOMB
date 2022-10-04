@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/textalog/assets/fonts/Silver/Silver.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 19
+size = 38
 extra_spacing_bottom = -4
 extra_spacing_space = 1
 font_data = ExtResource( 1 )
