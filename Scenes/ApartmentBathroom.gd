@@ -3,11 +3,13 @@ extends Node2D
 
 onready var kitchen_player: Player = get_node("../ApartmentKitchen/Player");
 onready var kitchen_cam: Camera2D = get_node("../ApartmentKitchen/KitchenCamera");
+onready var full_img: Control = get_node("/root/MainScene/CanvasLayer/UI/FullScreenImage");
+onready var CLEANING_PROD: StreamTexture = load("res://UI_Components/Sprites/cleaning_chemicals.png");
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$CleaningProducts/CollisionShape2D.disabled = true;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,3 +34,9 @@ func _on_KitchenTrigger_body_entered(body):
 		kitchen_player.current_player = true;
 		kitchen_player.visible = true;
 		kitchen_cam.current = true;
+
+
+func _on_SinkNumPuzzle_num_puzzle_solved(node_name):
+	full_img.show_image(CLEANING_PROD, $Player);
+	$CleaningProducts/CollisionShape2D.disabled = false;
+	$SinkNumPuzzle/CollisionShape2D.disabled = true;

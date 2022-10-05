@@ -1,5 +1,7 @@
 extends PuzzleBox
 
+signal num_puzzle_solved(node_name);
+
 
 export var solution: String;
 
@@ -25,6 +27,6 @@ func do_input_puzzle():
 		
 		
 func _on_NumInputLineEdit_is_solved():
-	print("You solved the num puzzle!")
+	emit_signal("num_puzzle_solved", name);
 	screen.queue_free();
 	open();

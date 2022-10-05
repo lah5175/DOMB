@@ -67,6 +67,8 @@ func try_interact():
 				var collider: Object = raycast.get_collider();
 				if collider.has_method("read_note"):
 					collider.read_note();
+				elif collider.has_method("display_fullscreen_image"):
+					collider.display_fullscreen_image(self);
 				elif collider.has_method("inspect_with_key_item"):
 					collider.inspect_with_key_item();
 				elif collider.has_method("pick_up_item"):
