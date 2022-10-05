@@ -19,11 +19,12 @@ func _ready():
 
 
 func _on_CameraTrigger_area_entered(area):
-	print("triggered")
-	area.queue_free();
-	$Player.current_player = true;
-	$Player.visible = true;
-	$BedroomCamera.current = true;
+	if area.get_class() == "EntryTrigger":
+		print("triggered")
+		area.queue_free();
+		$Player.current_player = true;
+		$Player.visible = true;
+		$BedroomCamera.current = true;
 
 
 func _on_KitchenTrigger_body_entered(body):

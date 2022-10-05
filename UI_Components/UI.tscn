@@ -26,3 +26,4 @@ margin_top = 152.0
 margin_right = 348.0
 margin_bottom = 183.0
 rect_scale = Vector2( 0.8, 0.8 )
+mouse_default_cursor_shape = 2
