@@ -69,6 +69,8 @@ func try_interact():
 					collider.read_note();
 				elif collider.has_method("display_fullscreen_image"):
 					collider.display_fullscreen_image(self);
+				elif collider.has_method("show_computer_screen"):
+					collider.show_computer_screen(self);
 				elif collider.has_method("inspect_with_key_item"):
 					collider.inspect_with_key_item();
 				elif collider.has_method("pick_up_item"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilemaps/bedroom.tsx" type="TileSet" id=1]
 [ext_resource path="res://Tilemaps/bedroom2.tsx" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Item_Components/InventoryItem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Item_Components/Sprites/bear.png" type="Texture" id=6]
+[ext_resource path="res://Interactables/Computer/Computer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 60 )
@@ -89,6 +90,9 @@ position = Vector2( 165, 72 )
 item_tooltip = "Bear"
 item_id = "bear"
 texture = ExtResource( 6 )
+
+[node name="Computer" parent="." instance=ExtResource( 7 )]
+position = Vector2( 233, 63 )
 
 [connection signal="area_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_area_entered"]
 [connection signal="body_entered" from="KitchenTrigger" to="." method="_on_KitchenTrigger_body_entered"]
