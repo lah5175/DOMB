@@ -94,6 +94,7 @@ func use_item(inventory: Inventory):
 		var texture_str = "res://Item_Components/Sprites/Clues/" + inventory.current_item + ".png";
 		popup.texture = load(texture_str);
 		ui.add_child(popup);
+		popup.get_node("RustleSFX").play();
 		popup_active = true;
 	
 	var item_consumed: bool = false;

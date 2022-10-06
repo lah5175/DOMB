@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal play_door_open;
 signal open_door(door_name, player);
 
 export var required_key: String;
@@ -21,6 +22,7 @@ func open_door(player: Player):
 	var anim: AnimationPlayer = $AnimationPlayer;
 	if is_locked:
 		if inventory.current_item == required_key:
+			emit_signal("play_door_open");
 			inventory.remove_item(inventory.current_index);
 			inventory.reset_state();
 			is_locked = false;
@@ -31,6 +33,7 @@ func open_door(player: Player):
 		else:
 			print("Missing required key"); # TODO: Replace with message
 	else:
+		emit_signal("play_door_open");
 		anim.play("Open");
 		yield(anim, "animation_finished");
 		emit_signal("open_door", door_name, player);

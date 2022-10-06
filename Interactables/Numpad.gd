@@ -22,6 +22,7 @@ func _physics_process(delta):
 func reset_state():
 	entry_arr.clear();
 	entry_str = "";
+	$NumSFX.play();
 	update_time();
 	
 	
@@ -29,6 +30,8 @@ func check_solution():
 	for digit in entry_arr:
 		entry_str += str(digit);
 	if entry_str == solution:
+		$SolvedSFX.play()
+		yield($SolvedSFX, "finished");
 		is_solved = true;
 		emit_signal("is_solved");
 	else:
@@ -55,6 +58,7 @@ func update_time():
 	
 func append_digit(digit):
 	if len(entry_arr) < 4 and !is_solved:
+		$NumSFX.play();
 		entry_arr.append(digit);
 		update_time();
 

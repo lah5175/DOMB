@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/textalog/assets/fonts/Silver/godot_fonts/silver_beeg.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Interactables/Numpad.gd" type="Script" id=2]
 [ext_resource path="res://Interactables/NumButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SFX/microwave_end_sound.wav" type="AudioStream" id=4]
+[ext_resource path="res://SFX/microwave_beep.wav" type="AudioStream" id=5]
 
 [node name="Numpad" type="Control"]
 anchor_right = 1.0
@@ -136,6 +138,12 @@ margin_bottom = 18.0
 mouse_filter = 1
 color = Color( 0.556863, 0, 0, 0.631373 )
 
+[node name="NumSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="SolvedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
 [connection signal="number_pressed" from="Num1" to="." method="_on_Num1_number_pressed"]
 [connection signal="number_pressed" from="Num2" to="." method="_on_Num2_number_pressed"]
 [connection signal="number_pressed" from="Num3" to="." method="_on_Num3_number_pressed"]
@@ -148,4 +156,3 @@ color = Color( 0.556863, 0, 0, 0.631373 )
 [connection signal="number_pressed" from="Num0" to="." method="_on_Num0_number_pressed"]
 [connection signal="pressed" from="Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="pressed" from="Clear" to="." method="_on_Clear_pressed"]
-[connection signal="pressed" from="Clear" to="." method="_on_Confirm_pressed"]

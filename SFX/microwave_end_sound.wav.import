@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/microwave_end_sound.wav-379fc164b1a24e87cfa5512961fee794.sample"
+
+[deps]
+
+source_file="res://SFX/microwave_end_sound.wav"
+dest_files=[ "res://.import/microwave_end_sound.wav-379fc164b1a24e87cfa5512961fee794.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

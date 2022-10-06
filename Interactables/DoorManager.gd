@@ -30,3 +30,8 @@ func _on_Door_open_door(door_name, player):
 	var trigger: Area2D = trigger_factory.instance();
 	get_parent().add_child(trigger);
 	trigger.global_position = locations[door_name];
+
+
+func _on_Door_play_door_open():
+	print("in play_door_open")
+	$OpenSFX.play();
