@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/textalog/assets/fonts/Silver/godot_fonts/silver_normal.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interactables/Computer/MemoPopup.gd" type="Script" id=2]
+[ext_resource path="res://Interactables/Computer/popup_x.png" type="Texture" id=3]
+
+[node name="MemoPopup" type="Control"]
+anchor_right = 0.375
+anchor_bottom = 0.783
+margin_right = 120.0
+margin_bottom = 139.06
+rect_scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 241.0
+margin_bottom = 281.0
+rect_scale = Vector2( 0.7, 0.7 )
+
+[node name="TopBar" type="ColorRect" parent="."]
+margin_right = 241.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.7, 0.7 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 7.0
+margin_top = 26.0
+margin_right = 228.0
+margin_bottom = 272.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "This is a test of the memo system. If it looks all right, that would be all well and good and I would never have to fuss with this again.
+
+	What a beautiful day for rain.
+	
+I don't know what I was thinking.
+	What the fuck is a donut
+I am going to eat you now."
+
+[node name="CloseButton" type="TextureRect" parent="."]
+margin_left = 151.571
+margin_top = 1.42857
+margin_right = 167.571
+margin_bottom = 17.4286
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 3 )
+
+[connection signal="gui_input" from="CloseButton" to="." method="_on_CloseButton_gui_input"]

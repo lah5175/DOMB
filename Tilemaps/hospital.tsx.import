@@ -1,0 +1,19 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/hospital.tsx-6c3be846431b607939e236d62a7d68f1.res"
+
+[deps]
+
+source_file="res://Tilemaps/hospital.tsx"
+dest_files=[ "res://.import/hospital.tsx-6c3be846431b607939e236d62a7d68f1.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=0
+embed_internal_images=true
+save_tiled_properties=false
+post_import_script=""

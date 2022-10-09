@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=1]
+[ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=2]
+[ext_resource path="res://Tilemaps/hospital.tsx" type="TileSet" id=3]
+[ext_resource path="res://Tilemaps/prison.tsx" type="TileSet" id=4]
+[ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Interactables/Sprites/animated_elevator_door_entrance_2.png" type="Texture" id=6]
+
+[node name="OfficeReception" type="Node2D"]
+position = Vector2( 16, 16 )
+
+[node name="Layer1" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 177, 0, 1, 177, 0, 2, 177, 0, 3, 177, 0, 4, 177, 0, 5, 177, 0, 6, 177, 0, 7, 177, 0, 8, 177, 0, 9, 177, 0, 65536, 181, 0, 65537, 181, 0, 65538, 181, 0, 65539, 181, 0, 65540, 181, 0, 65541, 181, 0, 65542, 181, 0, 65543, 181, 0, 65544, 181, 0, 65545, 181, 0, 131072, 200, 0, 131073, 200, 0, 131074, 200, 0, 131075, 200, 0, 131076, 200, 0, 131077, 200, 0, 131078, 200, 0, 131079, 200, 0, 131080, 200, 0, 131081, 200, 0, 196608, 122, 0, 196609, 123, 0, 196610, 123, 0, 196611, 123, 0, 196612, 123, 0, 196613, 123, 0, 196614, 123, 0, 196615, 123, 0, 196616, 123, 0, 196617, 123, 0, 262144, 138, 0, 262145, 139, 0, 262146, 139, 0, 262147, 139, 0, 262148, 139, 0, 262149, 139, 0, 262150, 139, 0, 262151, 139, 0, 262152, 139, 0, 262153, 139, 0, 327680, 138, 0, 327681, 139, 0, 327682, 139, 0, 327683, 139, 0, 327684, 139, 0, 327685, 139, 0, 327686, 139, 0, 327687, 139, 0, 327688, 139, 0, 327689, 139, 0, 393216, 138, 0, 393217, 139, 0, 393218, 139, 0, 393219, 139, 0, 393220, 139, 0, 393221, 139, 0, 393222, 139, 0, 393223, 139, 0, 393224, 139, 0, 393225, 139, 0, 458752, 138, 0, 458753, 139, 0, 458754, 139, 0, 458755, 139, 0, 458756, 139, 0, 458757, 139, 0, 458758, 139, 0, 458759, 139, 0, 458760, 139, 0, 458761, 139, 0, 524288, 138, 0, 524289, 139, 0, 524290, 139, 0, 524291, 139, 0, 524292, 139, 0, 524293, 139, 0, 524294, 139, 0, 524295, 139, 0, 524296, 139, 0, 524297, 139, 0, 589828, 140, 0, 589829, 140, 0 )
+
+[node name="Layer2" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196614, 1, 0, 196615, 144, 0, 196616, 2, 0, 196617, 3, 0, 262150, 33, 0, 262151, 34, 0, 262152, 34, 0, 262153, 35, 0, 327681, 616, 0, 327682, 617, 0, 393217, 632, 0, 393218, 633, 0, 458753, 648, 0, 458754, 649, 0, 458755, 118, 0, 458758, 118, 0, 524291, 134, 0, 524294, 134, 0 )
+
+[node name="JailTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327680, 532, 0, 327689, 563, 0, 393216, 580, 0, 393225, 563, 0, 458752, 580, 0, 458761, 563, 0, 524288, 580, 0 )
+
+[node name="JailTiles2" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327680, 564, 0, 393216, 564, 0, 393225, 579, 0, 458752, 564, 0, 458761, 579, 0, 524297, 579, 0 )
+
+[node name="HospitalTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65536, 204, 0, 65537, 205, 0, 131072, 206, 0, 131073, 207, 0, 196608, 236, 0, 196609, 237, 0 )
+
+[node name="Layer3" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 7, 192, 0, 8, 193, 0, 65543, 208, 0, 65544, 209, 0, 131079, 128, 0, 196614, 429, 0, 196615, 2, 0, 196616, 379, 0, 196617, 166, 0, 262150, 445, 0, 262151, 138, 0, 262152, 395, 0, 262153, 182, 0 )
+
+[node name="Layer4" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196615, 122, 0 )
+
+[node name="ElevatorBorder" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65538, 23, 0, 65541, 25, 0, 131074, 3, 0, 131077, 41, 0, 196610, 55, 0, 196613, 57, 0 )
+
+[node name="DoorManager" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 25 )
+
+[node name="Sprite" type="Sprite" parent="DoorManager"]
+position = Vector2( 0, 7 )
+texture = ExtResource( 6 )
+hframes = 14
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 23, 0, 10, 25, 0, 131071, 39, 0, 65546, 41, 0, 196607, 39, 0, 131082, 41, 0, 262143, 39, 0, 196618, 41, 0, 327679, 39, 0, 262154, 41, 0, 393215, 39, 0, 327690, 41, 0, 458751, 39, 0, 393226, 41, 0, 524287, 39, 0, 458762, 41, 0, 589823, 39, 0, 524298, 41, 0, 655359, 55, 0, 589824, 56, 0, 589825, 56, 0, 589826, 56, 0, 589827, 21, 0, 589830, 22, 0, 589831, 56, 0, 589832, 56, 0, 589833, 56, 0, 589834, 57, 0 )

@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/textalog/assets/fonts/Silver/godot_fonts/silver_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interactables/Computer/envelope.png" type="Texture" id=2]
+[ext_resource path="res://Interactables/Computer/Desktop.gd" type="Script" id=3]
+[ext_resource path="res://Interactables/Computer/browser.png" type="Texture" id=4]
+[ext_resource path="res://Interactables/Computer/files.png" type="Texture" id=5]
+[ext_resource path="res://Interactables/Computer/game_platform.png" type="Texture" id=6]
+[ext_resource path="res://Interactables/Computer/document.png" type="Texture" id=7]
+
+[node name="Desktop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0.592157, 0.564706, 1 )
+
+[node name="Taskbar" type="ColorRect" parent="."]
+margin_top = 167.0
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.901961, 0.901961, 0.901961, 1 )
+
+[node name="Mail" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 24.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Browser" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 24.0
+margin_bottom = 48.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 4 )
+stretch_mode = 5
+
+[node name="Files" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 80.0
+margin_right = 24.0
+margin_bottom = 96.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 5 )
+stretch_mode = 5
+
+[node name="Games" type="TextureRect" parent="."]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 24.0
+margin_bottom = 72.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 6 )
+stretch_mode = 5
+
+[node name="WorkMemo" type="TextureRect" parent="."]
+margin_left = 168.0
+margin_top = 120.0
+margin_right = 184.0
+margin_bottom = 136.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 7 )
+stretch_mode = 5
+
+[node name="Tooltip" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = ExtResource( 1 )
+text = "Mail"
+
+[connection signal="mouse_entered" from="Mail" to="." method="_on_Mail_mouse_entered"]
+[connection signal="mouse_exited" from="Mail" to="." method="_on_Mail_mouse_exited"]
+[connection signal="mouse_entered" from="Browser" to="." method="_on_Browser_mouse_entered"]
+[connection signal="mouse_exited" from="Browser" to="." method="_on_Browser_mouse_exited"]
+[connection signal="mouse_entered" from="Files" to="." method="_on_Files_mouse_entered"]
+[connection signal="mouse_exited" from="Files" to="." method="_on_Files_mouse_exited"]
+[connection signal="mouse_entered" from="Games" to="." method="_on_Games_mouse_entered"]
+[connection signal="mouse_exited" from="Games" to="." method="_on_Games_mouse_exited"]
+[connection signal="gui_input" from="WorkMemo" to="." method="_on_WorkMemo_gui_input"]
+[connection signal="mouse_entered" from="WorkMemo" to="." method="_on_WorkMemo_mouse_entered"]
+[connection signal="mouse_exited" from="WorkMemo" to="." method="_on_WorkMemo_mouse_exited"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=1]
+[ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=2]
+[ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interactables/Sprites/animated_elevator_door_entrance_2.png" type="Texture" id=4]
+
+[node name="OfficeElevator" type="Node2D"]
+
+[node name="Layer1" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131073, 177, 0, 131074, 177, 0, 131075, 177, 0, 196609, 193, 0, 196610, 193, 0, 196611, 193, 0, 262145, 203, 0, 262146, 203, 0, 262147, 203, 0, 327681, 203, 0, 327682, 203, 0, 327683, 203, 0, 393216, 55, 0, 393217, 56, 0, 393218, 56, 0, 393219, 56, 0, 393220, 57, 0 )
+
+[node name="Layer2" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="DoorManager" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 41 )
+
+[node name="Sprite" type="Sprite" parent="DoorManager"]
+position = Vector2( 0, 7 )
+texture = ExtResource( 4 )
+hframes = 14
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131072, 23, 0, 131076, 25, 0, 196608, 39, 0, 196612, 41, 0, 262144, 39, 0, 262148, 41, 0, 327680, 39, 0, 327684, 41, 0 )
