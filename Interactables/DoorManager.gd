@@ -3,6 +3,7 @@ extends Node2D
 export var required_key: String;
 export var door_name: String;
 export var is_locked: bool = false;
+export(PackedScene) var door_type;
 
 var locations: Dictionary = {
 	"bedroom_door": Vector2(107, 170),
@@ -13,6 +14,10 @@ onready var trigger_factory = preload("res://Interactables/EntryTrigger.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var door: Door = door_type.instance();
+	add_child(door);
+	door.connect("open_door", self, "_on_Door_open_door");
+	door.connect("play_door_open", self, "_on_Door_play_door_open");
 	$Door.required_key = required_key;
 	$Door.door_name = door_name;
 	$Door.is_locked = is_locked;

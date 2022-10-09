@@ -3,7 +3,7 @@
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=1]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=2]
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Interactables/Sprites/animated_elevator_door_entrance_2.png" type="Texture" id=4]
+[ext_resource path="res://Interactables/ElevatorDoor.tscn" type="PackedScene" id=4]
 
 [node name="OfficeFloor13" type="Node2D"]
 
@@ -44,12 +44,8 @@ format = 1
 tile_data = PoolIntArray( 393235, 23, 0, 393238, 25, 0, 458771, 3, 0, 458774, 41, 0, 524307, 55, 0, 524310, 57, 0 )
 
 [node name="DoorManager" parent="." instance=ExtResource( 3 )]
-position = Vector2( 336, 105 )
-
-[node name="Sprite" type="Sprite" parent="DoorManager"]
-position = Vector2( 0, 7 )
-texture = ExtResource( 4 )
-hframes = 14
+position = Vector2( 336, 112 )
+door_type = ExtResource( 4 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Tilemaps/living_kitchen.tsx" type="TileSet" id=1]
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Item_Components/Sprites/note.png" type="Texture" id=7]
 [ext_resource path="res://Interactables/NumberPuzzle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Item_Components/Sprites/knife.png" type="Texture" id=9]
+[ext_resource path="res://Interactables/WoodenDoor.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 36 )
@@ -91,10 +92,12 @@ shape = SubResource( 2 )
 [node name="BedroomDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 224, 25 )
 door_name = "bedroom_door"
+door_type = ExtResource( 10 )
 
 [node name="BathroomDoor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 328, 25 )
 door_name = "bathroom_door"
+door_type = ExtResource( 10 )
 
 [node name="Note" parent="." instance=ExtResource( 5 )]
 position = Vector2( 288, 71 )

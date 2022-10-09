@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Door
 
 signal play_door_open;
 signal open_door(door_name, player);

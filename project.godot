@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI_Components/DialogueManager.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://Interactables/Door.gd"
+}, {
 "base": "ItemList",
 "class": "Inventory",
 "language": "GDScript",
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "DialogManager": "",
 "DialogNode": "",
 "DialogueManager": "",
+"Door": "",
 "Inventory": "",
 "InventoryItem": "",
 "Monster": "",
