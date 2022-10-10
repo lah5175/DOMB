@@ -79,6 +79,8 @@ func try_interact():
 					collider.open_door(self);
 				elif collider.has_method("do_input_puzzle"):
 					collider.do_input_puzzle();
+				elif collider.has_method("use_elevator_buttons"):
+					collider.use_elevator_buttons();
 				return;
 			
 			use_item(inventory);

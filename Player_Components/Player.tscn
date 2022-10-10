@@ -28,3 +28,7 @@ shape = SubResource( 2 )
 enabled = true
 collision_mask = 2
 collide_with_areas = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -4.76837e-06, 4.76837e-06 )
+scale = Vector2( 3, 3 )

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Monster_Components/BasicMonster.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=4]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=5]
+[ext_resource path="res://Interactables/WoodenDoor.tscn" type="PackedScene" id=6]
 
 [node name="OfficeFloor4" type="Node2D"]
 
@@ -16,6 +16,7 @@ tile_data = PoolIntArray( 65537, 177, 0, 65538, 177, 0, 65539, 177, 0, 65540, 17
 
 [node name="DoorManager" parent="." instance=ExtResource( 3 )]
 position = Vector2( 55, 40 )
+door_type = ExtResource( 6 )
 
 [node name="Layer2" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -24,15 +25,17 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 55, 75 )
-current_player = true
-
-[node name="BasicMonster" parent="." instance=ExtResource( 2 )]
-visible = true
-position = Vector2( 56, 121 )
-scale = Vector2( 0.3, 0.3 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65536, 23, 0, 65542, 25, 0, 131072, 39, 0, 131078, 41, 0, 196608, 39, 0, 196614, 41, 0, 262144, 39, 0, 262150, 41, 0, 327680, 39, 0, 327686, 41, 0, 393216, 39, 0, 393222, 41, 0, 458752, 39, 0, 458758, 41, 0, 524288, 39, 0, 524294, 41, 0, 589824, 39, 0, 589830, 41, 0, 655360, 39, 0, 655366, 41, 0, 720896, 39, 0, 720902, 41, 0, 786432, 39, 0, 786438, 41, 0, 851968, 39, 0, 851974, 41, 0, 917504, 39, 0, 917510, 41, 0, 983040, 39, 0, 983046, 41, 0, 1048576, 39, 0, 1048582, 41, 0, 1114112, 39, 0, 1114118, 41, 0, 1179648, 39, 0, 1179654, 41, 0, 1245184, 39, 0, 1245190, 41, 0, 1310720, 39, 0, 1310726, 41, 0, 1376256, 39, 0, 1376262, 41, 0, 1441792, 39, 0, 1441798, 41, 0, 1507328, 55, 0, 1507329, 56, 0, 1507330, 33, 0, 1507332, 34, 0, 1507333, 56, 0, 1507334, 57, 0 )
+
+[node name="NorthCam" type="Camera2D" parent="."]
+position = Vector2( 59, 112 )
+zoom = Vector2( 1.1, 1.1 )
+
+[node name="SouthCam" type="Camera2D" parent="."]
+position = Vector2( 59, 289 )
+zoom = Vector2( 1.1, 1.1 )

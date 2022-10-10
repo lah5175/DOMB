@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Tilemaps/room_builder.tsx" type="TileSet" id=1]
+[ext_resource path="res://Tilemaps/stairways.tsx" type="TileSet" id=2]
+[ext_resource path="res://Interactables/OfficeDoor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/OfficeStairwell.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 6 )
+
+[node name="OfficeStairwell" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Layer1" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65536, 6361, 0, 65537, 3117, 0, 65538, 3117, 0, 65539, 3117, 0, 65540, 3117, 0, 65541, 3117, 0, 65542, 3117, 0, 65543, 3117, 0, 65544, 3117, 0, 65545, 3117, 0, 65546, 3117, 0, 65547, 3117, 0, 65548, 3117, 0, 65549, 3117, 0, 65550, 6366, 0, 131072, 6437, 0, 131073, 3121, 0, 131074, 3121, 0, 131075, 3121, 0, 131076, 3121, 0, 131077, 3121, 0, 131078, 3121, 0, 131079, 3121, 0, 131080, 3121, 0, 131081, 3121, 0, 131082, 3121, 0, 131083, 3121, 0, 131084, 3121, 0, 131085, 3121, 0, 131086, 6442, 0, 196608, 6513, 0, 196609, 3193, 0, 196610, 3193, 0, 196611, 3193, 0, 196612, 3193, 0, 196613, 3193, 0, 196614, 3193, 0, 196615, 3193, 0, 196616, 3193, 0, 196617, 3193, 0, 196618, 3193, 0, 196619, 3193, 0, 196620, 3193, 0, 196621, 3193, 0, 196622, 6518, 0, 262144, 6665, 0, 262145, 3154, 0, 262146, 3155, 0, 262147, 3155, 0, 262148, 3155, 0, 262149, 3155, 0, 262150, 3155, 0, 262151, 3155, 0, 262152, 3155, 0, 262153, 3155, 0, 262154, 3155, 0, 262155, 3155, 0, 262156, 3155, 0, 262157, 3155, 0, 262158, 6670, 0, 327680, 6665, 0, 327681, 3230, 0, 327682, 3231, 0, 327683, 3231, 0, 327684, 3231, 0, 327685, 3231, 0, 327686, 3231, 0, 327687, 3231, 0, 327688, 3231, 0, 327689, 3231, 0, 327690, 3231, 0, 327691, 3231, 0, 327692, 3231, 0, 327693, 3231, 0, 327694, 6670, 0, 393216, 6665, 0, 393217, 3230, 0, 393218, 3231, 0, 393219, 3231, 0, 393220, 3231, 0, 393221, 3231, 0, 393222, 3231, 0, 393223, 3231, 0, 393224, 3231, 0, 393225, 3231, 0, 393226, 3231, 0, 393227, 3231, 0, 393228, 3231, 0, 393229, 3231, 0, 393230, 6670, 0, 458752, 6665, 0, 458753, 3230, 0, 458754, 3231, 0, 458755, 3231, 0, 458756, 3231, 0, 458757, 3231, 0, 458758, 3231, 0, 458759, 3231, 0, 458760, 3231, 0, 458761, 3231, 0, 458762, 3231, 0, 458763, 3231, 0, 458764, 3231, 0, 458765, 3231, 0, 458766, 6670, 0, 524288, 6665, 0, 524289, 3230, 0, 524290, 3231, 0, 524291, 3231, 0, 524292, 3231, 0, 524293, 3231, 0, 524294, 468, 0, 524295, 468, 0, 524296, 468, 0, 524297, 468, 0, 524298, 468, 0, 524299, 468, 0, 524300, 468, 0, 524301, 468, 0, 524302, 461, 0, 589824, 6665, 0, 589825, 3230, 0, 589826, 3231, 0, 589827, 3231, 0, 589828, 3231, 0, 589829, 6670, 0, 655360, 6665, 0, 655361, 3230, 0, 655362, 3231, 0, 655363, 3231, 0, 655364, 3231, 0, 655365, 6670, 0, 720896, 6665, 0, 720897, 3230, 0, 720898, 3231, 0, 720899, 3231, 0, 720900, 3231, 0, 720901, 6670, 0, 786432, 462, 0, 786433, 468, 0, 786434, 468, 0, 786435, 468, 0, 786436, 468, 0, 786437, 461, 0 )
+
+[node name="Stairways" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65546, 81, 0, 65547, 80, 0, 65548, 80, 0, 65549, 82, 0, 131082, 81, 0, 131083, 80, 0, 131084, 80, 0, 131085, 82, 0, 196618, 81, 0, 196619, 80, 0, 196620, 80, 0, 196621, 82, 0, 262154, 87, 0, 262155, 86, 0, 262156, 86, 0, 262157, 88, 0, 655361, 71, 0, 655362, 70, 0, 655363, 70, 0, 655364, 72, 0, 720897, 87, 0, 720898, 86, 0, 720899, 86, 0, 720900, 88, 0 )
+
+[node name="DoorManager" parent="." instance=ExtResource( 4 )]
+position = Vector2( 63, 41 )
+door_type = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 65, 73 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 119, 106 )
+zoom = Vector2( 1.1, 1.1 )
+
+[node name="TopStairTrigger" type="Area2D" parent="."]
+position = Vector2( 192, 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopStairTrigger"]
+position = Vector2( 0, -8.5 )
+shape = SubResource( 1 )
+
+[node name="BottomStairTrigger" type="Area2D" parent="."]
+position = Vector2( 48, 192 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomStairTrigger"]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+
+[node name="Walls" type="TileMap" parent="BottomStairTrigger"]
+position = Vector2( -48, -192 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 524293, 6594, 0 )
+
+[node name="DoorTrigger" type="Area2D" parent="."]
+position = Vector2( 64, 74 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTrigger"]
+position = Vector2( 0, -4 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="TopStairTrigger" to="." method="_on_TopStairTrigger_body_entered"]
+[connection signal="body_entered" from="BottomStairTrigger" to="." method="_on_BottomStairTrigger_body_entered"]
+[connection signal="area_entered" from="DoorTrigger" to="." method="_on_DoorTrigger_area_entered"]

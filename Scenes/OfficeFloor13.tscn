@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=1]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=2]
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interactables/ElevatorDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/OfficeFloor13.gd" type="Script" id=5]
+[ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interactables/OfficeDoor.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 5.75 )
 
 [node name="OfficeFloor13" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Layer1" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -45,7 +52,16 @@ tile_data = PoolIntArray( 393235, 23, 0, 393238, 25, 0, 458771, 3, 0, 458774, 41
 
 [node name="DoorManager" parent="." instance=ExtResource( 3 )]
 position = Vector2( 336, 112 )
+door_name = "elevator"
 door_type = ExtResource( 4 )
+
+[node name="DoorManager2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 412, 105 )
+door_name = "stairwell"
+door_type = ExtResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 336, 140 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -55,9 +71,17 @@ tile_data = PoolIntArray( 131073, 23, 0, 131075, 24, 0, 131076, 56, 0, 131077, 5
 
 [node name="LeftCam" type="Camera2D" parent="."]
 position = Vector2( 204, 148 )
-current = true
 zoom = Vector2( 1.4, 1.4 )
 
 [node name="RightCam" type="Camera2D" parent="."]
 position = Vector2( 511, 149 )
 zoom = Vector2( 1.4, 1.4 )
+
+[node name="ElevatorTrigger" type="Area2D" parent="."]
+position = Vector2( 336, 133 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorTrigger"]
+position = Vector2( 0, 0.75 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="ElevatorTrigger" to="." method="_on_ElevatorTrigger_area_entered"]

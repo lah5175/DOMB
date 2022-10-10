@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Door
 
 signal play_door_open;
-signal open_door(door_name, player);
+signal open_door(door_name, player); # First arg should be deprecated
 
 export var required_key: String;
 export var door_name: String;

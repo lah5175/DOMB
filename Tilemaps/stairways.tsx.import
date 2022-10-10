@@ -1,0 +1,19 @@
+[remap]
+
+importer="vnen.tiled_tileset_importer"
+type="TileSet"
+path="res://.import/stairways.tsx-c078fb294a15f2754f7c3c2f253e00da.res"
+
+[deps]
+
+source_file="res://Tilemaps/stairways.tsx"
+dest_files=[ "res://.import/stairways.tsx-c078fb294a15f2754f7c3c2f253e00da.res" ]
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+image_flags=0
+embed_internal_images=true
+save_tiled_properties=false
+post_import_script=""

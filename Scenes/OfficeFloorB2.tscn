@@ -23,4 +23,3 @@ tile_data = PoolIntArray( 65536, 23, 0, 65537, 145, 0, 65538, 145, 0, 65539, 145
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 136, 137 )
-current = true

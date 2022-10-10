@@ -7,7 +7,12 @@ export(PackedScene) var door_type;
 
 var locations: Dictionary = {
 	"bedroom_door": Vector2(107, 170),
-	"bathroom_door": Vector2(506, 95)
+	"bathroom_door": Vector2(506, 95),
+	"elevator": Vector2(673, 99),
+	"elevator_reception": Vector2(80, 65),
+	"elevator_floor13": Vector2(319, 305),
+	"elevator_lounge": Vector2(319, 60),
+	"stairwell": Vector2(1448, 137)
 }
 
 onready var trigger_factory = preload("res://Interactables/EntryTrigger.tscn");
@@ -28,15 +33,16 @@ func _ready():
 #	pass
 
 
-func _on_Door_open_door(door_name, player):
+func _on_Door_open_door(door, player):
 	# This is a bit of a hack - I'm generating an Area2D to trigger a loading
 	# area so I can transfer the camera/player to that map
 	player.current_player = false;
 	var trigger: Area2D = trigger_factory.instance();
 	get_parent().add_child(trigger);
+	print("door_name: ", door_name);
 	trigger.global_position = locations[door_name];
 
 
 func _on_Door_play_door_open():
 	print("in play_door_open")
-	$OpenSFX.play();
+	$Door/OpenSFX.play();

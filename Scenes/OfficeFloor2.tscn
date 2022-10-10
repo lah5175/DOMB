@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=2]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=3]
+[ext_resource path="res://Interactables/WoodenDoor.tscn" type="PackedScene" id=4]
 
 [node name="OfficeFloor2" type="Node2D"]
 
@@ -25,3 +26,16 @@ tile_data = PoolIntArray( 65536, 23, 0, 65542, 25, 0, 131072, 39, 0, 131078, 41,
 
 [node name="DoorManager" parent="." instance=ExtResource( 1 )]
 position = Vector2( 55, 41 )
+door_type = ExtResource( 4 )
+
+[node name="NorthCam" type="Camera2D" parent="."]
+position = Vector2( 191, 152 )
+zoom = Vector2( 1.7, 1.7 )
+
+[node name="MidCam" type="Camera2D" parent="."]
+position = Vector2( 329, 454 )
+zoom = Vector2( 1.7, 1.7 )
+
+[node name="SouthCam" type="Camera2D" parent="."]
+position = Vector2( 329, 754 )
+zoom = Vector2( 1.7, 1.7 )
