@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Interactables/DoorManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=2]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=3]
 [ext_resource path="res://Interactables/WoodenDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/OfficeFloor2.gd" type="Script" id=5]
+[ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 3.5 )
 
 [node name="OfficeFloor2" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Layer1" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -18,6 +24,9 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 56, 82 )
+
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
@@ -29,7 +38,7 @@ position = Vector2( 55, 41 )
 door_type = ExtResource( 4 )
 
 [node name="NorthCam" type="Camera2D" parent="."]
-position = Vector2( 191, 152 )
+position = Vector2( 200, 165 )
 zoom = Vector2( 1.7, 1.7 )
 
 [node name="MidCam" type="Camera2D" parent="."]
@@ -37,5 +46,54 @@ position = Vector2( 329, 454 )
 zoom = Vector2( 1.7, 1.7 )
 
 [node name="SouthCam" type="Camera2D" parent="."]
-position = Vector2( 329, 754 )
+position = Vector2( 329, 740 )
 zoom = Vector2( 1.7, 1.7 )
+
+[node name="NorthCamTrigger" type="Area2D" parent="."]
+position = Vector2( 327, 298 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthCamTrigger"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="MidCamTriggerN" type="Area2D" parent="."]
+position = Vector2( 326, 322 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidCamTriggerN"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="MidCamTriggerSW" type="Area2D" parent="."]
+position = Vector2( 119, 586 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidCamTriggerSW"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="MidCamTriggerSE" type="Area2D" parent="."]
+position = Vector2( 535, 585 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidCamTriggerSE"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="SouthCamTriggerW" type="Area2D" parent="."]
+position = Vector2( 119, 609 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthCamTriggerW"]
+position = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="SouthCamTriggerE" type="Area2D" parent="."]
+position = Vector2( 535, 606 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthCamTriggerE"]
+position = Vector2( 1, 1.5 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="NorthCamTrigger" to="." method="_on_NorthCamTrigger_body_entered"]
+[connection signal="body_entered" from="MidCamTriggerN" to="." method="_on_MidCamTriggerN_body_entered"]
+[connection signal="body_entered" from="MidCamTriggerSW" to="." method="_on_MidCamTriggerSW_body_entered"]
+[connection signal="body_entered" from="MidCamTriggerSE" to="." method="_on_MidCamTriggerSE_body_entered"]
+[connection signal="body_entered" from="SouthCamTriggerW" to="." method="_on_SouthCamTriggerW_body_entered"]
+[connection signal="body_entered" from="SouthCamTriggerE" to="." method="_on_SouthCamTriggerE_body_entered"]

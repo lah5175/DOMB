@@ -21,3 +21,13 @@ func _on_ElevatorTrigger_area_entered(area):
 		$Player.visible = true;
 		$LeftCam.current = true;
 
+
+
+func _on_RightCamTrigger_body_entered(body):
+	if body.get_class() == "Player":
+		$RightCam.current = true;
+
+
+func _on_LeftCamTrigger_body_entered(body):
+	if body.get_class() == "Player":
+		$LeftCam.current = true;

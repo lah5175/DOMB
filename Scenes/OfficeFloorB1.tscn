@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilemaps/office_layer2.tsx" type="TileSet" id=1]
 [ext_resource path="res://Tilemaps/office_layer1.tsx" type="TileSet" id=2]
+[ext_resource path="res://Scenes/OfficeFloorB1.gd" type="Script" id=3]
+[ext_resource path="res://Player_Components/Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 40 )
 
 [node name="OfficeFloorB1" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Layer1" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -16,6 +25,9 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 55, 77 )
+
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -26,7 +38,7 @@ tile_data = PoolIntArray( 65536, 23, 0, 65542, 25, 0, 131072, 39, 0, 131078, 41,
 position = Vector2( 55, 101 )
 
 [node name="WC" type="Camera2D" parent="."]
-position = Vector2( 55, 280 )
+position = Vector2( 55, 250 )
 
 [node name="SWC" type="Camera2D" parent="."]
 position = Vector2( 55, 402 )
@@ -36,3 +48,68 @@ position = Vector2( 329, 402 )
 
 [node name="SEC" type="Camera2D" parent="."]
 position = Vector2( 525, 402 )
+
+[node name="NCTrigger" type="Area2D" parent="."]
+position = Vector2( 55, 160 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NCTrigger"]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
+
+[node name="WCTriggerN" type="Area2D" parent="."]
+position = Vector2( 55, 191 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WCTriggerN"]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
+
+[node name="WCTriggerS" type="Area2D" parent="."]
+position = Vector2( 55, 313 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WCTriggerS"]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
+
+[node name="SWCTriggerN" type="Area2D" parent="."]
+position = Vector2( 55, 342 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SWCTriggerN"]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
+
+[node name="SWCTriggerE" type="Area2D" parent="."]
+position = Vector2( 169, 423 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SWCTriggerE"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="SCTriggerW" type="Area2D" parent="."]
+position = Vector2( 215, 423 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SCTriggerW"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="SCTriggerE" type="Area2D" parent="."]
+position = Vector2( 365, 423 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SCTriggerE"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="SECTrigger" type="Area2D" parent="."]
+position = Vector2( 489, 423 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SECTrigger"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="NCTrigger" to="." method="_on_NCTrigger_body_entered"]
+[connection signal="body_entered" from="WCTriggerN" to="." method="_on_WCTriggerN_body_entered"]
+[connection signal="body_entered" from="WCTriggerS" to="." method="_on_WCTriggerS_body_entered"]
+[connection signal="body_entered" from="SWCTriggerN" to="." method="_on_SWCTriggerN_body_entered"]
+[connection signal="body_entered" from="SWCTriggerE" to="." method="_on_SWCTriggerE_body_entered"]
+[connection signal="body_entered" from="SCTriggerW" to="." method="_on_SCTriggerW_body_entered"]
+[connection signal="body_entered" from="SCTriggerE" to="." method="_on_SCTriggerE_body_entered"]
+[connection signal="body_entered" from="SECTrigger" to="." method="_on_SECTrigger_body_entered"]

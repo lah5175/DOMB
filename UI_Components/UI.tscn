@@ -22,9 +22,9 @@ margin_bottom = 432.0
 [node name="FullScreenImage" parent="." instance=ExtResource( 4 )]
 
 [node name="DialogueManager" parent="." instance=ExtResource( 3 )]
-mouse_filter = 2
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
+visible = false
 margin_left = 48.0
 margin_top = 152.0
 margin_right = 348.0
