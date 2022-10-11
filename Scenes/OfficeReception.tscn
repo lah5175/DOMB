@@ -71,7 +71,6 @@ door_type = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 80, 134 )
-current_player = true
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -81,7 +80,6 @@ tile_data = PoolIntArray( 65535, 23, 0, 10, 25, 0, 131071, 39, 0, 65546, 41, 0, 
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 80, 79 )
-current = true
 
 [node name="ElevatorReceptionTrigger" type="Area2D" parent="."]
 
