@@ -36,7 +36,6 @@ format = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 55, 75 )
-current_player = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -49,6 +48,7 @@ offset = 106.9
 [node name="BasicMonster" parent="Path2D/PathFollow2D" instance=ExtResource( 7 )]
 rotation = -1.5708
 scale = Vector2( 0.3, 0.3 )
+collision_layer = 2
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
@@ -58,7 +58,6 @@ tile_data = PoolIntArray( 65536, 23, 0, 65542, 25, 0, 131072, 39, 0, 131078, 41,
 
 [node name="NorthCam" type="Camera2D" parent="."]
 position = Vector2( 59, 112 )
-current = true
 zoom = Vector2( 1.1, 1.1 )
 
 [node name="SouthCam" type="Camera2D" parent="."]

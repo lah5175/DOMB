@@ -9,7 +9,7 @@ var can_attack: bool = true;
 # TODO: Balance these values
 var max_chase_dist: int = 300;
 var min_chase_dist: int = 50; # Currently unused
-var attack_dist: int = 100;
+var attack_dist: int = 20;
 
 var face_direction: Vector2;
 var direction_to_player: Vector2;
